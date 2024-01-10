@@ -13,6 +13,7 @@ function completeLoading(){
 
 //Show new quote
 function newQuote(){
+    document.querySelector('.copy-quote-btn').innerHTML = `<i class="fa-regular fa-copy"></i>`;
     // Getting a random quote from array
     loading();
     let quote = apiQuotes[Math.floor(Math.random()*Math.floor(apiQuotes.length))];
@@ -59,6 +60,7 @@ function addToClipboard(text) {
     // Copying text to clipboard
     navigator.clipboard.writeText(text)
       .then(() => {
+           document.querySelector('.copy-quote-btn').innerHTML = "Copied!";
       })
       .catch(err => {
         console.error('Error in writing to clipboard: ', err);
